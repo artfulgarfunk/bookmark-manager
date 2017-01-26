@@ -28,5 +28,14 @@ class BookmarkManager < Sinatra::Base
     erb :creating_links
   end
 
+  get '/tags/:name' do
+    tag = Tag.first_or_create(name: params[:name])
+    @links = tag ? tag.links : []
+    erb :links
+  end
+
+   #now send it a tag method which only displays the tag?
+
+
   run! if app_file == $0
 end
