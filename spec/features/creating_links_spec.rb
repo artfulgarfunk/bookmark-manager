@@ -1,5 +1,3 @@
-
-
 feature 'Creating links' do
   scenario 'want to save a web page' do
     visit '/links/new'
@@ -9,11 +7,11 @@ feature 'Creating links' do
   scenario 'to create a new link' do
     visit '/links/new'
     fill_in 'url', with: 'http://www.twitter.com/'
-    fill_in 'title', with: "I love twitter!"
+    fill_in 'title', with: "twitter!"
     click_button("Save Link")
     expect(current_path).to eq '/links'
     # do we need a within here?
-    expect(page).to have_content("I love twitter!")
+    expect(page).to have_content("twitter!")
   end
 
 end
